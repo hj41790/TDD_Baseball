@@ -1,6 +1,9 @@
 #include "pch.h"
 #include "../Baseball/baseball.cpp"
 
-TEST(BaseballGame, TryGameTest) {
-  EXPECT_EQ(1, 1);
+using namespace std;
+
+TEST(BaseballGame, ThrowExceptionWhenInputLengthIsUnmatched) {
+	Baseball game;
+	EXPECT_THROW(game.guess("12"), length_error);
 }
