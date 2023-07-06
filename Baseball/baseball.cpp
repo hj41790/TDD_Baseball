@@ -49,11 +49,12 @@ public:
 		int strikes = 0, balls = 0;
 		for (int i = 0; i < 3; i++)
 		{
-			if (question[i] == guessNumber[i]) strikes++;
-			else
-			{
-				if (question.find(guessNumber[i]) != string::npos) balls++;
-			}
+			string::size_type pos = question.find(guessNumber[i]);
+
+			if (pos == string::npos) continue;
+
+			if (pos == static_cast<string::size_type>(i)) strikes++;
+			else balls++;
 		}
 
 		return { false, strikes, balls };
