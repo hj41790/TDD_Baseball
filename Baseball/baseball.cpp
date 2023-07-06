@@ -46,7 +46,13 @@ public:
 			return { true, 3, 0 };
 		}
 
-		return { false, 0, 0 };
+		int strikes = 0;
+		for (int i=0; i<3; i++)
+		{
+			if (question[i] == guessNumber[i]) strikes++;
+		}
+
+		return { false, strikes, 0 };
 	}
 
 	explicit Baseball(const string& question) : question(question) {}
