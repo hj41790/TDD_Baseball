@@ -50,6 +50,10 @@ public:
 		for (int i = 0; i < 3; i++)
 		{
 			if (question[i] == guessNumber[i]) strikes++;
+			else
+			{
+				if (question.find(guessNumber[i]) != string::npos) balls++;
+			}
 		}
 
 		return { false, strikes, balls };
